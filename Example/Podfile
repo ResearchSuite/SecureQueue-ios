@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'SecureQueue_Example' do
+  pod 'SecureQueue', :path => '../'
+
+  target 'SecureQueue_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
