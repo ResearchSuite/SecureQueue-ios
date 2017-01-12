@@ -22,8 +22,8 @@ pod "SecureQueue"
 
 ## Author
 
-jdkizer9, james.kizer@gmail.com
+James Kizer @ Cornell Tech Foundry
 
 ## License
 
-SecureQueue is available under the MIT license. See the LICENSE file for more info.
+SecureQueue is available under the Apache 2.0 license. See the LICENSE file for more info.
