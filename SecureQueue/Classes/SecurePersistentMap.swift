@@ -89,7 +89,7 @@ open class SecurePersistentMap: NSObject {
     public func addValue(_ value: NSSecureCoding, forKey key: String) throws {
         
         if self.contains(key: key) {
-            throw SecureFIFOError.valueExists(key: key)
+            throw SecureQueueError.valueExists(key: key)
         }
         
         let filePath = self.mapDirectoryName.appending("/\(key)")

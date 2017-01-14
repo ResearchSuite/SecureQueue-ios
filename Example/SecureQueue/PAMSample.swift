@@ -25,28 +25,7 @@ final class PAMSample: OMHDataPointBase {
     static var supportsSecureCoding: Bool {
         return true
     }
-    
-//    required init?(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)
-//        
-//        self.affectValence = aDecoder.decodeObject(of: NSNumber.self, forKey: "affectValence")!.intValue
-//        self.affectArousal = aDecoder.decodeObject(of: NSNumber.self, forKey: "affectArousal")!.intValue
-//        self.positiveAffect = aDecoder.decodeObject(of: NSNumber.self, forKey: "positiveAffect")!.intValue
-//        self.negativeAffect = aDecoder.decodeObject(of: NSNumber.self, forKey: "negativeAffect")!.intValue
-//        self.mood = aDecoder.decodeObject(of: NSString.self, forKey: "mood") as! String
-//        
-//    }
-//    
-//    override func encode(with aCoder: NSCoder) {
-//        super.encode(with: aCoder)
-//        
-//        aCoder.encode(self.affectValence, forKey: "affectValence")
-//        aCoder.encode(self.affectArousal, forKey: "affectArousal")
-//        aCoder.encode(self.positiveAffect, forKey: "positiveAffect")
-//        aCoder.encode(self.negativeAffect, forKey: "negativeAffect")
-//        aCoder.encode(self.mood, forKey: "mood")
-//    }
-    
+
     override var schema: OMHSchema {
         return OMHSchema(
             name: "photographic-affect-meter-scores",
@@ -68,6 +47,4 @@ final class PAMSample: OMHDataPointBase {
             
         ]
     }
-    
-
 }

@@ -172,6 +172,7 @@ public class SecureQueue: NSObject {
         
     }
     
+    //may need to turn this into callback
     public func removeElement(elementId: String) throws {
         //for now, only support remvoing the first element
         self.elementsLockQueue.sync {
