@@ -5,26 +5,26 @@
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
     "3DCE3E0EE8462894210CB6A36EF939B6FC78033C" : 9223372036854775807,
-    "33FA9C9BF0F6598D4838CE8D4721A28A4AC604C0" : 9223372036854775807
+    "8E285F9D131B77EA09234515CDCA34ACBF4AC5F3" : 9223372036854775807
   },
   "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "6E124EB2-8B90-4FA7-9998-F589F104AAA3",
   "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
     "3DCE3E0EE8462894210CB6A36EF939B6FC78033C" : "SecureQueue\/",
-    "33FA9C9BF0F6598D4838CE8D4721A28A4AC604C0" : "OMHClient\/"
+    "8E285F9D131B77EA09234515CDCA34ACBF4AC5F3" : "OMHClient\/"
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "SecureQueue",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
   "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Example\/SecureQueue.xcworkspace",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cornelltech\/OMHClient-ios.git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
-      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "33FA9C9BF0F6598D4838CE8D4721A28A4AC604C0"
-    },
-    {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cornelltech\/SecureQueue-ios.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "3DCE3E0EE8462894210CB6A36EF939B6FC78033C"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/cornelltech\/OMHClient-ios.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8E285F9D131B77EA09234515CDCA34ACBF4AC5F3"
     }
   ]
 }
