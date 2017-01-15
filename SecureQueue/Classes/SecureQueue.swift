@@ -286,5 +286,11 @@ public class SecureQueue: NSObject {
         try self.saveQueue(elementIDList: [])
         
     }
+    
+    public var count: Int {
+        return self.elementsLockQueue.sync {
+            return self.elementIDList.count
+        }
+    }
 
 }
