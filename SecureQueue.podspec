@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SecureQueue'
-  s.version          = '0.0.2'
+  s.version          = '0.0.3'
   s.summary          = 'SecureQueue is a queue that securely persists its contents to disk.'
 
 # This description is used to generate tags and improve search results.
