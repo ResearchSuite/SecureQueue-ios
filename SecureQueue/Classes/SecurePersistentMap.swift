@@ -39,13 +39,6 @@ open class SecurePersistentMap: NSObject {
             //if a file, remove file and add directory
             if isDirectory.boolValue {
                 
-                do {
-                    let attributes = try FileManager.default.attributesOfItem(atPath: self.mapDirectoryName)
-//                    debugPrint(attributes)
-                } catch let error as NSError {
-                    print(error.localizedDescription);
-                }
-                
                 return
             }
             else {
@@ -61,7 +54,7 @@ open class SecurePersistentMap: NSObject {
         
         do {
             try self.createMapDirectory()
-            let attributes = try FileManager.default.attributesOfItem(atPath: self.mapDirectoryName)
+//            let attributes = try FileManager.default.attributesOfItem(atPath: self.mapDirectoryName)
 //            debugPrint(attributes)
         } catch let error as NSError {
             print(error.localizedDescription);
@@ -122,25 +115,21 @@ open class SecurePersistentMap: NSObject {
         guard let cachedValue = self.getValueIfInMemory(forKey: key) else {
             
             var valueFromDisk: NSSecureCoding
-            do {
-                let filePath = self.mapDirectoryName.appending("/\(key)")
-                
-//                debugPrint(filePath)
-                guard let data = FileManager.default.contents(atPath: filePath) else {
-                    return nil
-                }
-                
-                let secureUnarchiver = NSKeyedUnarchiver(forReadingWith: data)
-                secureUnarchiver.requiresSecureCoding = true
-                valueFromDisk = try secureUnarchiver.decodeObject(of: self.allowedClasses, forKey: NSKeyedArchiveRootObjectKey) as! NSSecureCoding
-
-                self.lockQueue.sync {
-                    self.cacheMap[key] = valueFromDisk
-                }
-                
-            } catch let error as NSError {
-                throw error
+            
+            let filePath = self.mapDirectoryName.appending("/\(key)")
+            
+            //                debugPrint(filePath)
+            guard let data = FileManager.default.contents(atPath: filePath) else {
                 return nil
+            }
+            
+            let secureUnarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            secureUnarchiver.requiresSecureCoding = true
+            
+            valueFromDisk = secureUnarchiver.decodeObject(of: self.allowedClasses, forKey: NSKeyedArchiveRootObjectKey) as! NSSecureCoding
+            
+            self.lockQueue.sync {
+                self.cacheMap[key] = valueFromDisk
             }
             
             return valueFromDisk
@@ -178,6 +167,7 @@ open class SecurePersistentMap: NSObject {
             
             self.lockQueue.sync {
                 self.cacheMap.removeValue(forKey: key)
+                return
             }
             
         } catch let error as NSError {

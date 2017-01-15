@@ -51,7 +51,8 @@ public class SecureQueue: NSObject {
         
         let secureUnarchiver = NSKeyedUnarchiver(forReadingWith: data)
         secureUnarchiver.requiresSecureCoding = true
-        return (try secureUnarchiver.decodeObject(of: [NSArray.self], forKey: NSKeyedArchiveRootObjectKey) as? [String]) ?? []
+        
+        return secureUnarchiver.decodeObject(of: [NSArray.self], forKey: NSKeyedArchiveRootObjectKey) as? [String] ?? []
         
     }
     
