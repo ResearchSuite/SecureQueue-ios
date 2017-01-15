@@ -268,5 +268,23 @@ public class SecureQueue: NSObject {
             return self.elementIDList.isEmpty
         }
     }
+    
+    public func clear() throws {
+        //need to better understand failure modes
+        
+        self.elementsLockQueue.sync {
+            do {
+                try self.secureMapLockQueue.sync {
+                    try self.secureMap.destroy()
+                }
+            } catch let error {
+                debugPrint(error)
+            }
+        }
+        
+        self.elementIDList = []
+        try self.saveQueue(elementIDList: [])
+        
+    }
 
 }
