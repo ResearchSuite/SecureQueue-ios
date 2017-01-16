@@ -5,6 +5,8 @@
 [![License](https://img.shields.io/cocoapods/l/SecureQueue.svg?style=flat)](http://cocoapods.org/pods/SecureQueue)
 [![Platform](https://img.shields.io/cocoapods/p/SecureQueue.svg?style=flat)](http://cocoapods.org/pods/SecureQueue)
 
+**This project is currently experimental and will be changing rapidly. You probably shouldn't use it yet!**
+
 ## Example
 
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
