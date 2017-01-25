@@ -275,7 +275,7 @@ public class SecureQueue: NSObject {
         self.elementsLockQueue.sync {
             do {
                 try self.secureMapLockQueue.sync {
-                    try self.secureMap.destroy()
+                    try self.secureMap.removeAll()
                 }
             } catch let error {
                 debugPrint(error)

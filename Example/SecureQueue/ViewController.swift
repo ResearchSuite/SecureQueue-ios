@@ -100,6 +100,105 @@ class ViewController: UIViewController {
             
         }
         
+        if let queue = SecureQueue(directoryName: "OMHDatapointQueue", allowedClasses: allowedClasses) {
+            
+            do {
+                printQueueHead(queue)
+                
+                try queue.addElement(element: pam.toDict() as NSDictionary)
+                
+                printQueueHead(queue)
+                
+                try queue.addElement(element: pam.toDict() as NSDictionary)
+                
+                printQueueHead(queue)
+                
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            
+        }
+        
+        if let queue = SecureQueue(directoryName: "OMHDatapointQueue", allowedClasses: allowedClasses) {
+            
+            do {
+                
+                printQueueHead(queue)
+                
+                try queue.clear()
+                
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            
+        }
+        
+        if let queue = SecureQueue(directoryName: "OMHDatapointQueue", allowedClasses: allowedClasses) {
+            
+            do {
+                printQueueHead(queue)
+                
+                try queue.addElement(element: pam.toDict() as NSDictionary)
+                
+                printQueueHead(queue)
+                
+                try queue.addElement(element: pam.toDict() as NSDictionary)
+                
+                printQueueHead(queue)
+                
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            
+        }
+        
+        if let queue = SecureQueue(directoryName: "OMHDatapointQueue", allowedClasses: allowedClasses) {
+            
+            do {
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+                printQueueHead(queue)
+                
+                if let headID = self.getQueueHeadID(queue) {
+                    try queue.removeElement(elementId: headID)
+                }
+                
+            } catch let error as NSError {
+                print(error.debugDescription)
+            }
+            
+        }
+        
+        
+        
     }
     
     override func viewDidLoad() {
