@@ -8,7 +8,7 @@
 
 import UIKit
 
-public class SecureQueue: NSObject {
+open class SecureQueue: NSObject {
     
     var directoryPath: String!
     var secureMap: SecurePersistentMap!
@@ -172,6 +172,8 @@ public class SecureQueue: NSObject {
         }
         
     }
+    
+    
     
     //may need to turn this into callback
     public func removeElement(elementId: String) throws {
