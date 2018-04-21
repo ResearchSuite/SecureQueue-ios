@@ -65,7 +65,7 @@ open class SecureQueue: NSObject {
         do {
             mapElements = try Set(secureMap.keys())
         } catch let error as NSError {
-            print(error.localizedDescription)
+//            print(error.localizedDescription)
             return nil
         }
         
@@ -80,7 +80,7 @@ open class SecureQueue: NSObject {
             //get set subtraction, log that these elements are being dropped
             let droppedElements = queueElements.subtracting(mapElements)
             droppedElements.forEach({ (elementID) in
-                print("dropping element: \(elementID)")
+//                print("dropping element: \(elementID)")
             })
             
             queueElements = queueElements.intersection(mapElements)
@@ -100,7 +100,7 @@ open class SecureQueue: NSObject {
             } catch let error as NSError {
                 //note that this isnt necessarily the worst thing in the world,
                 //we can probably still continue depending on the error
-                print(error.localizedDescription)
+//                print(error.localizedDescription)
                 
             }
         })
@@ -121,7 +121,7 @@ open class SecureQueue: NSObject {
         }
         
         self.directoryPath = documentsPath.appending("/\(directoryName)")
-        print(self.directoryPath)
+//        print(self.directoryPath)
         
         guard let secureMap = SecurePersistentMap(directoryName: self.directoryPath.appending("/data"), allowedClasses: allowedClasses) else {
             return nil
@@ -132,7 +132,7 @@ open class SecureQueue: NSObject {
         do {
             elementIDList = try self.loadQueue()
         } catch let error as NSError {
-            print(error.localizedDescription)
+//            print(error.localizedDescription)
         }
         
         guard let (syncdElelemtIDList, syncdSecureMap) = self.syncQueueAndMap(elementIDList: elementIDList, secureMap: secureMap) else { return nil }
@@ -165,7 +165,7 @@ open class SecureQueue: NSObject {
                 } catch let error as NSError {
                     
                     //what happens if we can't save the queue?
-                    print(error.localizedDescription)
+//                    print(error.localizedDescription)
                 }
             }
             
@@ -203,7 +203,7 @@ open class SecureQueue: NSObject {
                 } catch let error as NSError {
                     
                     //what happens if we can't save the queue?
-                    print(error.localizedDescription)
+//                    print(error.localizedDescription)
                 }
                 
                 
@@ -280,7 +280,7 @@ open class SecureQueue: NSObject {
                     try self.secureMap.removeAll()
                 }
             } catch let error {
-                debugPrint(error)
+//                debugPrint(error)
             }
         }
         
