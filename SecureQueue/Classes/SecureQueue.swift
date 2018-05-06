@@ -236,6 +236,34 @@ open class SecureQueue: NSObject {
         
     }
     
+    public func getElements() throws -> [(String, NSSecureCoding)] {
+        
+        return try self.elementsLockQueue.sync {
+            
+            if let front: String = self.elementIDList.first {
+                
+                return try self.secureMapLockQueue.sync {
+                    
+                    let pairs: [(String, NSSecureCoding)] = try self.elementIDList.compactMap { id in
+                        if let value = try self.secureMap.getValue(forKey: id) {
+                            return (id, value)
+                        }
+                        else {
+                            return nil
+                        }
+                    }
+                    
+                    return pairs
+                }
+            }
+            else {
+                return []
+            }
+            
+        }
+        
+    }
+    
     //we need to come up with a better scheme of keeping track of in progress uploads
     //for now, assume single consumer
     public func getFirstInMemoryElement() -> (String, NSSecureCoding)? {
@@ -261,6 +289,30 @@ open class SecureQueue: NSObject {
                 return nil
             }
 
+        }
+        
+    }
+    
+    public func getInMemoryElements() throws -> [(String, NSSecureCoding)] {
+        
+        return try self.elementsLockQueue.sync {
+                
+            return try self.secureMapLockQueue.sync {
+            
+                let inMemoryElements = Set(self.secureMap.keysInMemory())
+                
+                let pairs: [(String, NSSecureCoding)] = try inMemoryElements.compactMap { id in
+                    if let value = try self.secureMap.getValue(forKey: id) {
+                        return (id, value)
+                    }
+                    else {
+                        return nil
+                    }
+                }
+                
+                return pairs
+            }
+            
         }
         
     }
