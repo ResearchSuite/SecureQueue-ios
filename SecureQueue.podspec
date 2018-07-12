@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'SecureQueue'
-  s.version          = '0.1.1'
+  s.version          = '0.2.0'
   s.summary          = 'SecureQueue is a queue that securely persists its contents to disk.'
   s.swift_version    = '4.1'
 
